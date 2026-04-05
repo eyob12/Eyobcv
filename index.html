@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deboch Eyob Abera | AI Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --navy-mid: #162033;
+      --navy-soft: #1e2d42;
+      --amber: #e8a020;
+      --amber-light: #f5c060;
+      --cream: #f7f3ed;
+      --cream-dark: #ede8e0;
+      --text: #1a2332;
+      --text-muted: #5a6a7e;
+      --white: #ffffff;
+      --border: rgba(232,160,32,0.2);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--navy);
+      border-bottom: 2px solid var(--amber);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+
+    .nav-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--amber); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      color: var(--white);
+      padding: 90px 2rem 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(232,160,32,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--amber);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-bio {
+      font-size: 0.96rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 620px;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .hero-contacts { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(232,160,32,0.12);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.35rem 0.75rem;
+      color: var(--amber-light);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-family: 'IBM Plex Mono', monospace;
+      transition: background 0.2s;
+    }
+
+    .contact-pill:hover { background: rgba(232,160,32,0.22); }
+
+    .hero-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid var(--amber);
+      object-fit: cover;
+      opacity: 0.95;
+    }
+
+    .avatar-placeholder {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid var(--amber);
+      background: var(--navy-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--amber);
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+    }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1100px; margin: auto; padding: 0 2rem; }
+
+    section { padding: 72px 0; }
+
+    section:nth-child(even) { background: var(--cream-dark); }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--amber), transparent);
+    }
+
+    /* ── ABOUT / FOCUS ── */
+    .focus-card {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 2rem 2.5rem;
+      border-left: 4px solid var(--amber);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 820px;
+    }
+
+    .focus-card strong { color: var(--amber); }
+
+    /* ── EDUCATION / EXPERIENCE ── */
+    .timeline { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.75rem 2rem;
+      border: 1px solid rgba(0,0,0,0.07);
+      transition: box-shadow 0.25s, transform 0.25s;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--amber);
+      border-radius: 3px 0 0 3px;
+    }
+
+    .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(13,27,42,0.1); }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: 0.15rem;
+    }
+
+    .card-badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--amber);
+      background: rgba(232,160,32,0.1);
+      border: 1px solid rgba(232,160,32,0.3);
+      border-radius: 4px;
+      padding: 0.2rem 0.55rem;
+      white-space: nowrap;
+    }
+
+    .card-meta {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      font-size: 0.93rem;
+      color: #3a4a5e;
+      line-height: 1.8;
+    }
+
+    .card ul li { margin-bottom: 0.2rem; }
+
+    .gpa-tag {
+      display: inline-block;
+      background: rgba(232,160,32,0.15);
+      color: #7a5000;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      margin-left: 0.5rem;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .pub-status-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin: 2.5rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .pub-status-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(0,0,0,0.1);
+    }
+
+    .pub-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0;
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.07);
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .pub-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(13,27,42,0.1); }
+
+    .pub-thumb {
+      background: var(--navy-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+      overflow: hidden;
+    }
+
+    .pub-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pub-thumb-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1.5rem;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.7rem;
+      text-align: center;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .pub-thumb-placeholder svg { opacity: 0.3; }
+
+    .pub-body {
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .pub-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--amber);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .pub-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      line-height: 1.45;
+      margin-bottom: 0.6rem;
+    }
+
+    .pub-authors {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      line-height: 1.55;
+    }
+
+    .pub-authors strong { color: var(--text); font-weight: 600; }
+
+    .pub-venue {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #7a5000;
+      font-weight: 500;
+    }
+
+    .pub-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+
+    .tag {
+      font-size: 0.72rem;
+      font-family: 'IBM Plex Mono', monospace;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+    }
+
+    .tag-q1 { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .tag-q2 { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
+    .tag-conf { background: #f3e5f5; color: #6a1b9a; border: 1px solid #ce93d8; }
+    .tag-review { background: #fff3e0; color: #e65100; border: 1px solid #ffcc80; }
+
+    /* ── AWARDS ── */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .award-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid rgba(0,0,0,0.07);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .award-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .award-info h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.98rem;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+
+    .award-info p { font-size: 0.82rem; color: var(--text-muted); }
+
+    .award-year {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--amber);
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .skill-card h4 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .chip {
+      font-size: 0.8rem;
+      background: var(--cream);
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 4px;
+      padding: 0.2rem 0.55rem;
+      color: var(--text);
+    }
+
+    /* ── REFERENCES ── */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .ref-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .ref-card h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+
+    .ref-role {
+      font-size: 0.8rem;
+      color: var(--amber);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .ref-contact { font-size: 0.82rem; color: var(--text-muted); }
+
+    .ref-contact a { color: var(--navy); text-decoration: none; }
+    .ref-contact a:hover { color: var(--amber); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.82rem;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    footer span { color: var(--amber); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .avatar-placeholder, .hero-avatar { margin: auto; }
+      .pub-card { grid-template-columns: 1fr; }
+      .pub-thumb { min-height: 160px; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">DEBOCH EYOB ABERA</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#skills">Skills</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="top">
+  <div class="hero-inner container">
+    <div>
+      <div class="hero-label">PhD Researcher · AI &amp; Deep Learning</div>
+      <h1>Deboch Eyob<br/>Abera</h1>
+      <p class="hero-subtitle">Chinese Academy of Sciences, SIAT · Shenzhen, China</p>
+      <p class="hero-bio">
+        A young, talented PhD researcher and AI expert specializing in deep learning algorithm design for medical image analysis.
+        Eight published papers (four Q1 journals, two Q2, two peer-reviewed conferences), and a reviewer for top journals
+        including <em>Pattern Recognition</em>, <em>Information Fusion</em>, and <em>Infrared Physics &amp; Technology</em>.
+        Research spans image fusion, classification, segmentation, detection, and tracking.
+      </p>
+      <div class="hero-contacts">
+        <a class="contact-pill" href="mailto:eyobaberade1@gmail.com">✉ eyobaberade1@gmail.com</a>
+        <a class="contact-pill" href="tel:+8613208198575">✆ (+86) 132-0819-8575</a>
+        <a class="contact-pill" href="https://github.com/eyob12/" target="_blank">⌥ github.com/eyob12</a>
+      </div>
+    </div>
+    <div class="avatar-placeholder">EA</div>
+  </div>
+</section>
+
+<!-- ── EDUCATION ── -->
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <h2>Education</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <h3>Chinese Academy of Sciences, SIAT</h3>
+            <div class="card-meta">Pattern Recognition and Intelligent Systems · Shenzhen, China</div>
+          </div>
+          <span class="card-badge">Sep 2023 – Jun 2026</span>
+        </div>
+        <p><strong>PhD</strong><span class="gpa-tag">CGPA 3.96/4 · Avg 90.91/100</span></p>
+        <p style="margin-top:0.5rem; font-size:0.9rem; color:var(--text-muted);">Advisor: Prof. Wenjian Qin</p>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <h3>University of Electronic Science and Technology of China</h3>
+            <div class="card-meta">Information and Communication Engineering · Chengdu, China</div>
+          </div>
+          <span class="card-badge">Sep 2021 – Jun 2023</span>
+        </div>
+        <p><strong>MSc</strong><span class="gpa-tag">CGPA 4/4 · Avg 93.92/100</span></p>
+        <p style="margin-top:0.5rem; font-size:0.9rem; color:var(--text-muted);">Advisor: Assoc. Prof. Qi Jin</p>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <h3>University of Electronic Science and Technology of China</h3>
+            <div class="card-meta">Electronic Information Engineering · Chengdu, China</div>
+          </div>
+          <span class="card-badge">Sep 2017 – Jun 2021</span>
+        </div>
+        <p><strong>BSc</strong><span class="gpa-tag">CGPA 3.82/4 · Avg 87.2/100</span></p>
+        <p style="margin-top:0.5rem; font-size:0.9rem; color:var(--text-muted);">Advisor: Assoc. Prof. Wu Ruiqing</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <h2>Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <h3>PhD Thesis Research — CAS SIAT</h3>
+            <div class="card-meta">Advisor: Prof. Wenjian Qin · Shenzhen Institute of Advanced Technology</div>
+          </div>
+          <span class="card-badge">Sep 2023 – Jun 2026</span>
+        </div>
+        <ul>
+          <li>Design and implement generalizable deep learning models for nuclei segmentation in histopathological images.</li>
+          <li>Design and implement generalizable deep learning models for multi-modality cell segmentation in microscopy images.</li>
+          <li>Design and implement a unified model for multi-modality cell segmentation and tracking in microscopy images.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <h3>MSc Thesis Research — UESTC</h3>
+            <div class="card-meta">Advisor: Assoc. Prof. Qi Jin</div>
+          </div>
+          <span class="card-badge">Summer 2022 – Jun 2023</span>
+        </div>
+        <ul>
+          <li>Designed and implemented a deep learning model for infrared and visible image fusion.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <h3>BSc Thesis Research — UESTC</h3>
+            <div class="card-meta">Advisor: Assoc. Prof. Wu Ruiqing</div>
+          </div>
+          <span class="card-badge">Spring 2021</span>
+        </div>
+        <ul>
+          <li>Designed and implemented an Ensemble Network for Infrared and Visible image fusion.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <h3>Freelance ML Engineer — Upwork</h3>
+            <div class="card-meta">Online contract work</div>
+          </div>
+          <span class="card-badge">Feb 2023 – Sep 2023</span>
+        </div>
+        <ul>
+          <li>Detected the height of a volleyball during smash/shot events using computer vision.</li>
+          <li>Prepared annotated datasets for a client company.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <h3>School Assistant — UESTC</h3>
+            <div class="card-meta">School of Information and Communication Engineering</div>
+          </div>
+          <span class="card-badge">Fall 2021</span>
+        </div>
+        <ul>
+          <li>Responded to student inquiries, guided students, and assisted the school coordinator for one semester.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PUBLICATIONS ── -->
+<section id="publications">
+  <div class="container">
+    <div class="section-header">
+      <h2>Publications</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- JOURNAL -->
+    <div class="pub-status-label">Journal Papers</div>
+    <div class="pub-list">
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <!-- Replace src with your figure: e.g. src="figs/pub1.png" -->
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here<br/>e.g. pub1.png</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Journal · 01</div>
+          <div class="pub-title">A Deep Learning Based Relative Clarity Classification Method for Infrared and Visible Image Fusion</div>
+          <div class="pub-authors"><strong>Deboch Eyob Abera</strong>, Qi Jin, and Jian Cheng.</div>
+          <div class="pub-venue">Infrared Physics &amp; Technology 140 (2024): 105375</div>
+          <div class="pub-tags"><span class="tag tag-q1">Q1</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here<br/>e.g. pub2.png</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Journal · 02</div>
+          <div class="pub-title">Automated Prompt-Guided Multi-Modality Cell Segmentation with Shape-Aware Classification and Boundary-Aware SAM Adaptation</div>
+          <div class="pub-authors"><strong>Deboch Eyob Abera</strong>; Jiaye He; Jia Liu; Nazar Zaki.</div>
+          <div class="pub-venue">Display Journal (2024)</div>
+          <div class="pub-tags"><span class="tag tag-q1">Q1</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here<br/>e.g. pub3.png</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Journal · 03</div>
+          <div class="pub-title">Style Transformation and Distance Map Guided Nucleus Instance Segmentation via Multi-Task Learning</div>
+          <div class="pub-authors"><strong>Deboch Eyob Abera</strong>, Nazar Zaki, and Wenjian Qin.</div>
+          <div class="pub-venue">Biomedical Signal Processing and Control 112 (2026): 108724</div>
+          <div class="pub-tags"><span class="tag tag-q1">Q1</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here<br/>e.g. pub4.png</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Journal · 04</div>
+          <div class="pub-title">A Deep Learning and Image Enhancement Based Pipeline for Infrared and Visible Image Fusion</div>
+          <div class="pub-authors">Qi Jin, <strong>Deboch Eyob Abera</strong>, Mola Natnael Fanose, Lingfeng Wang, and Jian Cheng. <em>(Equal first authorship)</em></div>
+          <div class="pub-venue">Neurocomputing 578 (2024): 127353</div>
+          <div class="pub-tags"><span class="tag tag-q1">Q1</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here<br/>e.g. pub5.png</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Journal · 05</div>
+          <div class="pub-title">PS-GAN: Pseudo Supervised Generative Adversarial Network with Single Scale Retinex Embedding for Infrared and Visible Image Fusion</div>
+          <div class="pub-authors">Qi Jin, <strong>Deboch Eyob Abera</strong>, and Jian Cheng. <em>(Equal first authorship)</em></div>
+          <div class="pub-venue">IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (2024)</div>
+          <div class="pub-tags"><span class="tag tag-q1">Q1</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here<br/>e.g. pub6.png</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Journal · 06</div>
+          <div class="pub-title">Multi-Scale Feature Fusion for Prediction of IDH1 Mutations in Glioma Histopathological Images</div>
+          <div class="pub-authors">Liu Xiang, Wanming Hu, Songhui Diao, <strong>Deboch Eyob Abera</strong>, Daniel Racoceanu, and Wenjian Qin.</div>
+          <div class="pub-venue">Computer Methods and Programs in Biomedicine 248 (2024): 108116</div>
+          <div class="pub-tags"><span class="tag tag-q2">Q2</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CONFERENCE -->
+    <div class="pub-status-label">Conference Papers</div>
+    <div class="pub-list">
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here<br/>e.g. conf1.png</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Conference · 01</div>
+          <div class="pub-title">Automatic Image Contrast Enhancement Based on Reinforcement Learning</div>
+          <div class="pub-authors"><strong>D. Eyob Abera</strong>, T. S. Gerezgiher, Q. Jin and G. F. Mesfin.</div>
+          <div class="pub-venue">ICCWAMTIP 2022, Chengdu, China · DOI: 10.1109/ICCWAMTIP56608.2022.10016571</div>
+          <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here<br/>e.g. conf2.png</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Conference · 02</div>
+          <div class="pub-title">Electroencephalography Data Denoising with Deep Neural Networks</div>
+          <div class="pub-authors">M. W. Bekele, <strong>D. Eyob Abera</strong>, M. T. Hailemichael, K. Yeabsra Dechasa, M. N. Fanos and M. Yared Getachew.</div>
+          <div class="pub-venue">ICCECT 2023, Jilin, China · DOI: 10.1109/ICCECT57938.2023.10140786</div>
+          <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- UNDER REVIEW -->
+    <div class="pub-status-label">Under Review</div>
+    <div class="pub-list">
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Under Review · 01</div>
+          <div class="pub-title">PGVMS: A Prompt-Guided Unified Framework for Virtual Multiplex IHC Staining with Pathological Semantic Learning</div>
+          <div class="pub-authors">Minor revision</div>
+          <div class="pub-venue">IEEE Transactions on Medical Imaging</div>
+          <div class="pub-tags"><span class="tag tag-review">Minor Revision</span><span class="tag tag-q1">Q1</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Under Review · 02</div>
+          <div class="pub-title">USIGAN: Unbalanced Self-Information Feature Transport for Weakly Paired Image IHC Virtual Staining</div>
+          <div class="pub-authors">Minor revision</div>
+          <div class="pub-venue">IEEE Transactions on Image Processing</div>
+          <div class="pub-tags"><span class="tag tag-review">Minor Revision</span><span class="tag tag-q1">Q1</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Under Review · 03</div>
+          <div class="pub-title">A Unified Segmentation Model with Motion-Aware Graph Matching for Cross-Modality Cell Tracking</div>
+          <div class="pub-authors">Under review</div>
+          <div class="pub-venue">Elsevier Biomedical Signal Processing and Control</div>
+          <div class="pub-tags"><span class="tag tag-review">Under Review</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Under Review · 04</div>
+          <div class="pub-title">SynergiTripNet++: Synergistic Multi-Modal Fusion for Surgical Triplet Recognition in Endoscopic Videos</div>
+          <div class="pub-authors">Under review</div>
+          <div class="pub-venue">Elsevier Biomedical Signal Processing and Control</div>
+          <div class="pub-tags"><span class="tag tag-review">Under Review</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Under Review · 05</div>
+          <div class="pub-title">HybridFusionNet: A Novel Hybrid CNN and Transformer Architecture with Feature Pyramid Fusion for Surgical Scene Segmentation</div>
+          <div class="pub-authors">Under review</div>
+          <div class="pub-venue">Elsevier Display</div>
+          <div class="pub-tags"><span class="tag tag-review">Under Review</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Place figure here</span>
+          </div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-num">Under Review · 06</div>
+          <div class="pub-title">TempoSafe-CVS: A Temporal Multi-Scale Deep Learning Framework for Automated Assessment of the Critical View of Safety in Laparoscopic Cholecystectomy</div>
+          <div class="pub-authors">Under review</div>
+          <div class="pub-venue">Springer International Journal of Computer Assisted Radiology and Surgery</div>
+          <div class="pub-tags"><span class="tag tag-review">Under Review</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── AWARDS ── -->
+<section id="awards">
+  <div class="container">
+    <div class="section-header">
+      <h2>Awards &amp; Scholarships</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="awards-grid">
+
+      <div class="award-card">
+        <div class="award-icon">🎓</div>
+        <div class="award-info">
+          <h4>ANSO Scholarship</h4>
+          <p>Full scholarship to pursue a PhD at the Chinese Academy of Sciences</p>
+          <div class="award-year">2023 – 2026</div>
+        </div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">🏛️</div>
+        <div class="award-info">
+          <h4>Chinese Government Scholarship (CSC)</h4>
+          <p>Full scholarship for Master's degree at UESTC</p>
+          <div class="award-year">2021 – 2023</div>
+        </div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">🌍</div>
+        <div class="award-info">
+          <h4>Betre-Science Scholarship, MoE Ethiopia</h4>
+          <p>Full scholarship for top Ethiopian STEM students to study abroad</p>
+          <div class="award-year">2017 – 2021</div>
+        </div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">🥇</div>
+        <div class="award-info">
+          <h4>Academic Achievement Award — 1st Prize</h4>
+          <p>UESTC academic excellence recognition</p>
+          <div class="award-year">2021/22</div>
+        </div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">🏆</div>
+        <div class="award-info">
+          <h4>Scientific Innovation Competition — 1st Prize</h4>
+          <p>UESTC Scientific Innovation Competition</p>
+          <div class="award-year">Sep 2022</div>
+        </div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">🎖️</div>
+        <div class="award-info">
+          <h4>Shenzhen Universidad Scholarship Foundation</h4>
+          <p>Winner of the 2022 award</p>
+          <div class="award-year">2022</div>
+        </div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">🎬</div>
+        <div class="award-info">
+          <h4>Excellent Research Journey in China</h4>
+          <p>Video expo winner</p>
+          <div class="award-year">2022</div>
+        </div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">🥈</div>
+        <div class="award-info">
+          <h4>Academic Achievement Award — 2nd Prize</h4>
+          <p>UESTC academic recognition</p>
+          <div class="award-year">2019/20</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header">
+      <h2>Skills &amp; Languages</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <h4>Deep Learning</h4>
+        <div class="skill-chips">
+          <span class="chip">PyTorch</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">CUDA</span>
+          <span class="chip">Transformers</span>
+          <span class="chip">SAM</span>
+          <span class="chip">GANs</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Programming</h4>
+        <div class="skill-chips">
+          <span class="chip">Python</span>
+          <span class="chip">C/C++</span>
+          <span class="chip">C#</span>
+          <span class="chip">MATLAB</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Tools &amp; DevOps</h4>
+        <div class="skill-chips">
+          <span class="chip">Linux</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Git</span>
+          <span class="chip">Slurm</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Research Areas</h4>
+        <div class="skill-chips">
+          <span class="chip">Image Fusion</span>
+          <span class="chip">Segmentation</span>
+          <span class="chip">Detection</span>
+          <span class="chip">Tracking</span>
+          <span class="chip">Classification</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Languages</h4>
+        <div class="skill-chips">
+          <span class="chip">Amharic (Native)</span>
+          <span class="chip">English (Professional)</span>
+          <span class="chip">Chinese (Conversational)</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Journal Reviewer</h4>
+        <div class="skill-chips">
+          <span class="chip">Pattern Recognition</span>
+          <span class="chip">Information Fusion</span>
+          <span class="chip">Infrared Physics &amp; Tech</span>
+          <span class="chip">Optics &amp; Laser Tech</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- REFERENCES -->
+    <div class="section-header" style="margin-top:56px;">
+      <h2>References</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="ref-grid">
+
+      <div class="ref-card">
+        <h4>Prof. Wenjian Qin</h4>
+        <div class="ref-role">PhD Supervisor · CAS SIAT</div>
+        <div class="ref-contact"><a href="mailto:wj.qin@siat.ac.cn">wj.qin@siat.ac.cn</a></div>
+      </div>
+
+      <div class="ref-card">
+        <h4>Prof. Nazar Zaki</h4>
+        <div class="ref-role">PhD Advisor</div>
+        <div class="ref-contact"><a href="mailto:nzaki44@gmail.com">nzaki44@gmail.com</a></div>
+      </div>
+
+      <div class="ref-card">
+        <h4>Assoc. Prof. Qi Jin</h4>
+        <div class="ref-role">Master's Supervisor · UESTC</div>
+        <div class="ref-contact"><a href="mailto:jqi@uestc.edu.cn">jqi@uestc.edu.cn</a> · +86 158 2851 1916</div>
+      </div>
+
+      <div class="ref-card">
+        <h4>Assoc. Prof. Wu Ruiqing</h4>
+        <div class="ref-role">BSc Thesis Supervisor · UESTC</div>
+        <div class="ref-contact"><a href="mailto:rqwu@uestc.edu.cn">rqwu@uestc.edu.cn</a> · +86 28 6183 0054</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>&copy; 2026 <span>Deboch Eyob Abera</span> · Built for GitHub Pages</p>
+</footer>
+
+<script>
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Subtle fade-in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.style.opacity = '1';
+        el.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.card, .pub-card, .award-card, .skill-card, .ref-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.45s ease, transform 0.45s ease, box-shadow 0.25s, transform 0.25s';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

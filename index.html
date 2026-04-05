@@ -76,7 +76,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: var(--navy);
+      background: var(--navy) !important;
       color: var(--white);
       padding: 90px 2rem 70px;
       position: relative;
@@ -179,7 +179,7 @@
 
     section { padding: 72px 0; }
 
-    section:nth-child(even) { background: var(--cream-dark); }
+    section:not(.hero):nth-child(even) { background: var(--cream-dark); }
 
     .section-header {
       display: flex;
@@ -571,12 +571,12 @@
         Research spans image fusion, classification, segmentation, detection, and tracking.
       </p>
       <div class="hero-contacts">
-        <a class="contact-pill" href="mailto:eyobaberade1@gmail.com">✉ eyobaberade1@gmail.com</a>
+        <a class="contact-pill" href="/cdn-cgi/l/email-protection#3154485e53505354435055540071565c50585d1f525e5c">✉ <span class="__cf_email__" data-cfemail="4f2a36202d2e2d2a3d2e2b2a7e0f28222e2623612c2022">[email&#160;protected]</span></a>
         <a class="contact-pill" href="tel:+8613208198575">✆ (+86) 132-0819-8575</a>
         <a class="contact-pill" href="https://github.com/eyob12/" target="_blank">⌥ github.com/eyob12</a>
       </div>
     </div>
-    <div class="avatar-placeholder">EA</div>
+    <img class="hero-avatar" src="figs/eyob.jpg" alt="Deboch Eyob Abera" />
   </div>
 </section>
 
@@ -1131,25 +1131,25 @@
       <div class="ref-card">
         <h4>Prof. Wenjian Qin</h4>
         <div class="ref-role">PhD Supervisor · CAS SIAT</div>
-        <div class="ref-contact"><a href="mailto:wj.qin@siat.ac.cn">wj.qin@siat.ac.cn</a></div>
+        <div class="ref-contact"><a href="/cdn-cgi/l/email-protection#5d2a37732c34331d2e343c29733c3e733e33"><span class="__cf_email__" data-cfemail="e5928fcb948c8ba5968c8491cb8486cb868b">[email&#160;protected]</span></a></div>
       </div>
 
       <div class="ref-card">
         <h4>Prof. Nazar Zaki</h4>
         <div class="ref-role">PhD Advisor</div>
-        <div class="ref-contact"><a href="mailto:nzaki44@gmail.com">nzaki44@gmail.com</a></div>
+        <div class="ref-contact"><a href="/cdn-cgi/l/email-protection#4c22362d272578780c2b212d2520622f2321"><span class="__cf_email__" data-cfemail="c2acb8a3a9abf6f682a5afa3abaeeca1adaf">[email&#160;protected]</span></a></div>
       </div>
 
       <div class="ref-card">
         <h4>Assoc. Prof. Qi Jin</h4>
         <div class="ref-role">Master's Supervisor · UESTC</div>
-        <div class="ref-contact"><a href="mailto:jqi@uestc.edu.cn">jqi@uestc.edu.cn</a> · +86 158 2851 1916</div>
+        <div class="ref-contact"><a href="/cdn-cgi/l/email-protection#147e657d5461716760773a7170613a777a"><span class="__cf_email__" data-cfemail="6c061d052c19091f180f42090819420f02">[email&#160;protected]</span></a> · +86 158 2851 1916</div>
       </div>
 
       <div class="ref-card">
         <h4>Assoc. Prof. Wu Ruiqing</h4>
         <div class="ref-role">BSc Thesis Supervisor · UESTC</div>
-        <div class="ref-contact"><a href="mailto:rqwu@uestc.edu.cn">rqwu@uestc.edu.cn</a> · +86 28 6183 0054</div>
+        <div class="ref-contact"><a href="/cdn-cgi/l/email-protection#43313234360336263037206d2627366d202d"><span class="__cf_email__" data-cfemail="84f6f5f3f1c4f1e1f7f0e7aae1e0f1aae7ea">[email&#160;protected]</span></a> · +86 28 6183 0054</div>
       </div>
 
     </div>
@@ -1161,35 +1161,8 @@
   <p>&copy; 2026 <span>Deboch Eyob Abera</span> · Built for GitHub Pages</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Smooth scroll for nav links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
-      }
-    });
-  });
-
-  // Subtle fade-in on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.style.opacity = '1';
-        el.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.card, .pub-card, .award-card, .skill-card, .ref-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(16px)';
-    el.style.transition = 'opacity 0.45s ease, transform 0.45s ease, box-shadow 0.25s, transform 0.25s';
-    observer.observe(el);
-  });
-</script>
-
-</body>
-</html>
+      const target = document.querySelector(a.getAttribute('href')

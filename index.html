@@ -51,21 +51,19 @@
     .card ul li{margin-bottom:0.2rem;}
     .gpa-tag{display:inline-block;background:rgba(232,160,32,0.15);color:#7a5000;font-size:0.82rem;font-weight:600;border-radius:4px;padding:0.1rem 0.5rem;margin-left:0.5rem;}
 
-    .pub-list{display:flex;flex-direction:column;gap:1.5rem;}
+    /* Publications — text only, no image panel */
+    .pub-list{display:flex;flex-direction:column;gap:1.1rem;}
     .pub-section-head{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:2.5rem 0 1rem;display:flex;align-items:center;gap:0.75rem;}
     .pub-section-head::after{content:'';flex:1;height:1px;background:rgba(0,0,0,0.1);}
-    .pub-card{display:grid;grid-template-columns:220px 1fr;background:var(--white);border-radius:8px;border:1px solid rgba(0,0,0,0.07);overflow:hidden;transition:box-shadow 0.25s,transform 0.25s;position:relative;}
-    .pub-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(13,27,42,0.1);}
-    .pub-thumb{background:var(--navy-soft);display:flex;align-items:center;justify-content:center;min-height:180px;overflow:hidden;position:relative;}
-    .pub-thumb-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;padding:1.5rem;color:rgba(255,255,255,0.35);font-size:0.7rem;text-align:center;font-family:'IBM Plex Mono',monospace;width:100%;}
-    .pub-thumb-placeholder svg{opacity:0.3;}
-    .pub-body{padding:1.5rem 1.75rem;display:flex;flex-direction:column;justify-content:center;}
-    .pub-num{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--amber);font-weight:500;margin-bottom:0.5rem;letter-spacing:0.05em;}
-    .pub-title{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--navy);line-height:1.45;margin-bottom:0.6rem;}
-    .pub-authors{font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;line-height:1.55;}
+    .pub-card{background:var(--white);border-radius:8px;border:1px solid rgba(0,0,0,0.07);border-left:3px solid var(--amber);transition:box-shadow 0.25s,transform 0.25s;}
+    .pub-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(13,27,42,0.09);}
+    .pub-body{padding:1.2rem 1.6rem;}
+    .pub-num{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--amber);font-weight:500;margin-bottom:0.35rem;letter-spacing:0.05em;}
+    .pub-title{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--navy);line-height:1.4;margin-bottom:0.45rem;}
+    .pub-authors{font-size:0.85rem;color:var(--text-muted);margin-bottom:0.35rem;line-height:1.55;}
     .pub-authors strong{color:var(--text);font-weight:600;}
     .pub-venue{font-size:0.85rem;font-style:italic;color:#7a5000;font-weight:500;}
-    .pub-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.75rem;align-items:center;}
+    .pub-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.6rem;align-items:center;}
     .tag{font-size:0.72rem;font-family:'IBM Plex Mono',monospace;padding:0.15rem 0.5rem;border-radius:3px;}
     .tag-q1{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;}
     .tag-q2{background:#e3f2fd;color:#1565c0;border:1px solid #90caf9;}
@@ -73,9 +71,7 @@
     .tag-review{background:#fff3e0;color:#e65100;border:1px solid #ffcc80;}
     .tag-major{background:#fce4ec;color:#b71c1c;border:1px solid #ef9a9a;}
     .tag-published{background:#e8f5e9;color:#1b5e20;border:1px solid #81c784;font-weight:600;}
-    .tag-scimago{background:#e8eaf6;color:#283593;border:1px solid #9fa8da;font-weight:600;}
-
-    .pub-links{display:flex;gap:0.5rem;margin-top:0.6rem;flex-wrap:wrap;}
+    .pub-links{display:flex;gap:0.5rem;margin-top:0.45rem;}
     .pub-link{font-size:0.72rem;font-family:'IBM Plex Mono',monospace;color:var(--amber);text-decoration:none;border:1px solid rgba(232,160,32,0.4);border-radius:3px;padding:0.12rem 0.45rem;transition:background 0.2s;}
     .pub-link:hover{background:rgba(232,160,32,0.1);}
 
@@ -106,20 +102,16 @@
     @media(max-width:700px){
       .hero-inner{grid-template-columns:1fr;}
       .hero-avatar{margin:auto;}
-      .pub-card{grid-template-columns:1fr;}
-      .pub-thumb{min-height:160px;}
       .nav-links{gap:1rem;}
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="nav-brand" href="#top">DEBOCH EYOB ABERA</a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#publications">Publications</a></li>
@@ -136,16 +128,14 @@
       <div class="hero-label">PhD Researcher · AI &amp; Deep Learning</div>
       <h1>Deboch Eyob<br/>Abera</h1>
       <p class="hero-subtitle">Chinese Academy of Sciences, SIAT · Shenzhen, China</p>
-      <p class="hero-bio">A young, talented PhD researcher and AI expert specializing in deep learning algorithm design. Published <strong>ten papers</strong> (six Q1 journals, two Q2, two peer-reviewed conferences), and a reviewer for top journals including Pattern Recognition, Information Fusion, Optics &amp; Laser Technology, and Infrared Physics &amp; Technology. Research spans image fusion, classification, segmentation, detection, and tracking.</p>
+      <p class="hero-bio">A young, talented PhD researcher and AI expert specializing in deep learning algorithm design. Published <strong>ten papers</strong> (six Q1 journals, two Q2 journals, two peer-reviewed conferences), and a reviewer for top journals including Pattern Recognition, Information Fusion, Optics &amp; Laser Technology, and Infrared Physics &amp; Technology. Research spans image fusion, classification, segmentation, detection, and tracking.</p>
       <div class="hero-contacts">
         <a class="contact-pill" href="mailto:eyobaberade1@gmail.com">✉ eyobaberade1@gmail.com</a>
         <a class="contact-pill" href="tel:+8613208198575">✆ (+86) 132-0819-8575</a>
         <a class="contact-pill" href="https://github.com/eyob12/" target="_blank" rel="noopener">⌥ github.com/eyob12</a>
       </div>
     </div>
-    <div>
-      <img class="hero-avatar" src="figs/eyob.jpg" alt="Deboch Eyob Abera"/>
-    </div>
+    <div><img class="hero-avatar" src="figs/eyob.jpg" alt="Deboch Eyob Abera"/></div>
   </div>
 </section>
 
@@ -154,34 +144,21 @@
   <div class="container">
     <div class="section-header"><h2>Education</h2><div class="section-line"></div></div>
     <div class="timeline">
-
       <div class="card">
-        <div class="card-top">
-          <div><h3>Chinese Academy of Sciences, SIAT</h3><div class="card-meta">Pattern Recognition and Intelligent Systems · Shenzhen, China</div></div>
-          <span class="card-badge">Sep 2023 – Jun 2026</span>
-        </div>
+        <div class="card-top"><div><h3>Chinese Academy of Sciences, SIAT</h3><div class="card-meta">Pattern Recognition and Intelligent Systems · Shenzhen, China</div></div><span class="card-badge">Sep 2023 – Jun 2026</span></div>
         <p><strong>PhD</strong><span class="gpa-tag">CGPA 3.96/4 · Avg 90.91/100</span></p>
         <p style="margin-top:0.5rem;font-size:0.9rem;color:var(--text-muted);">Advisor: Prof. Wenjian Qin</p>
       </div>
-
       <div class="card">
-        <div class="card-top">
-          <div><h3>University of Electronic Science and Technology of China</h3><div class="card-meta">Information and Communication Engineering · Chengdu, China</div></div>
-          <span class="card-badge">Sep 2021 – Jun 2023</span>
-        </div>
+        <div class="card-top"><div><h3>University of Electronic Science and Technology of China</h3><div class="card-meta">Information and Communication Engineering · Chengdu, China</div></div><span class="card-badge">Sep 2021 – Jun 2023</span></div>
         <p><strong>MSc</strong><span class="gpa-tag">CGPA 4/4 · Avg 93.92/100</span></p>
         <p style="margin-top:0.5rem;font-size:0.9rem;color:var(--text-muted);">Advisor: Assoc. Prof. Qi Jin</p>
       </div>
-
       <div class="card">
-        <div class="card-top">
-          <div><h3>University of Electronic Science and Technology of China</h3><div class="card-meta">Electronic Information Engineering · Chengdu, China</div></div>
-          <span class="card-badge">Sep 2017 – Jun 2021</span>
-        </div>
+        <div class="card-top"><div><h3>University of Electronic Science and Technology of China</h3><div class="card-meta">Electronic Information Engineering · Chengdu, China</div></div><span class="card-badge">Sep 2017 – Jun 2021</span></div>
         <p><strong>BSc</strong><span class="gpa-tag">CGPA 3.82/4 · Avg 87.2/100</span></p>
         <p style="margin-top:0.5rem;font-size:0.9rem;color:var(--text-muted);">Advisor: Assoc. Prof. Wu Ruiqing</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -191,32 +168,33 @@
   <div class="container">
     <div class="section-header"><h2>Experience</h2><div class="section-line"></div></div>
     <div class="timeline">
-
       <div class="card">
         <div class="card-top"><div><h3>PhD Thesis Research — CAS SIAT</h3><div class="card-meta">Advisor: Prof. Wenjian Qin · Shenzhen Institute of Advanced Technology</div></div><span class="card-badge">Sep 2023 – Jun 2026</span></div>
-        <ul><li>Design and implement generalizable deep learning models for nuclei segmentation in histopathological images.</li><li>Design and implement generalizable deep learning models for multi-modality cell segmentation in microscopy images.</li><li>Design and implement a unified model for multi-modality cell segmentation and tracking in microscopy images.</li></ul>
+        <ul>
+          <li>Design and implement generalizable deep learning models for nuclei segmentation in histopathological images.</li>
+          <li>Design and implement generalizable deep learning models for multi-modality cell segmentation in microscopy images.</li>
+          <li>Design and implement a unified model for multi-modality cell segmentation and tracking in microscopy images.</li>
+        </ul>
       </div>
-
       <div class="card">
         <div class="card-top"><div><h3>MSc Thesis Research — UESTC</h3><div class="card-meta">Advisor: Assoc. Prof. Qi Jin</div></div><span class="card-badge">Summer 2022 – Jun 2023</span></div>
         <ul><li>Designed and implemented a deep learning model for infrared and visible image fusion.</li></ul>
       </div>
-
       <div class="card">
         <div class="card-top"><div><h3>BSc Thesis Research — UESTC</h3><div class="card-meta">Advisor: Assoc. Prof. Wu Ruiqing</div></div><span class="card-badge">Spring 2021</span></div>
         <ul><li>Designed and implemented an Ensemble Network for Infrared and Visible image fusion.</li></ul>
       </div>
-
       <div class="card">
         <div class="card-top"><div><h3>Freelance ML Engineer — Upwork</h3><div class="card-meta">Online contract work</div></div><span class="card-badge">Feb 2023 – Sep 2023</span></div>
-        <ul><li>Detected the height of a volleyball during smash/shot events using computer vision.</li><li>Prepared annotated datasets for a client company.</li></ul>
+        <ul>
+          <li>Detected the height of a volleyball during smash/shot events using computer vision.</li>
+          <li>Prepared annotated datasets for a client company.</li>
+        </ul>
       </div>
-
       <div class="card">
         <div class="card-top"><div><h3>School Assistant — UESTC</h3><div class="card-meta">School of Information and Communication Engineering</div></div><span class="card-badge">Fall 2021</span></div>
         <ul><li>Responded to student inquiries, guided students, and assisted the school coordinator for one semester.</li></ul>
       </div>
-
     </div>
   </div>
 </section>
@@ -226,184 +204,135 @@
   <div class="container">
     <div class="section-header"><h2>Publications</h2><div class="section-line"></div></div>
 
-    <!-- JOURNAL -->
     <div class="pub-section-head">Journal Papers</div>
-    <div class="pub-list" id="pub-journal">
+    <div class="pub-list">
 
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>pub1.png</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Journal · 01</div>
-          <div class="pub-title">A Deep Learning Based Relative Clarity Classification Method for Infrared and Visible Image Fusion</div>
-          <div class="pub-authors"><strong>Deboch Eyob Abera</strong>, Qi Jin, and Jian Cheng.</div>
-          <div class="pub-venue">Infrared Physics &amp; Technology, vol. 140, 2024, p. 105375</div>
-          <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1016/j.infrared.2024.105375" target="_blank" rel="noopener">DOI ↗</a></div>
-          <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">Q1</span><span class="tag tag-scimago">SJR Q1</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Journal · 01</div>
+        <div class="pub-title">A Deep Learning Based Relative Clarity Classification Method for Infrared and Visible Image Fusion</div>
+        <div class="pub-authors"><strong>Deboch Eyob Abera</strong>, Qi Jin, and Jian Cheng.</div>
+        <div class="pub-venue">Infrared Physics &amp; Technology, vol. 140, 2024, p. 105375</div>
+        <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1016/j.infrared.2024.105375" target="_blank" rel="noopener">DOI ↗</a></div>
+        <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q2">SJR Q2</span></div>
+      </div></div>
 
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>pub2.png</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Journal · 02</div>
-          <div class="pub-title">Automated Prompt-Guided Multi-Modality Cell Segmentation with Shape-Aware Classification and Boundary-Aware SAM Adaptation</div>
-          <div class="pub-authors"><strong>Deboch Eyob Abera</strong>; Jiaye He; Jia Liu; Nazar Zaki.</div>
-          <div class="pub-venue">Display, Elsevier, 2024</div>
-          <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">Q1</span><span class="tag tag-scimago">SJR Q1</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Journal · 02</div>
+        <div class="pub-title">Automated Prompt-Guided Multi-Modality Cell Segmentation with Shape-Aware Classification and Boundary-Aware SAM Adaptation</div>
+        <div class="pub-authors"><strong>Deboch Eyob Abera</strong>; Jiaye He; Jia Liu; Nazar Zaki.</div>
+        <div class="pub-venue">Displays, Elsevier, 2024</div>
+        <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q2">SJR Q2</span></div>
+      </div></div>
 
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>pub3.png</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Journal · 03</div>
-          <div class="pub-title">Style Transformation and Distance Map Guided Nucleus Instance Segmentation via Multi-Task Learning</div>
-          <div class="pub-authors"><strong>Deboch Eyob Abera</strong>, Nazar Zaki, and Wenjian Qin.</div>
-          <div class="pub-venue">Biomedical Signal Processing and Control, vol. 112, 2026</div>
-          <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">Q1</span><span class="tag tag-scimago">SJR Q1</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Journal · 03</div>
+        <div class="pub-title">Style Transformation and Distance Map Guided Nucleus Instance Segmentation via Multi-Task Learning</div>
+        <div class="pub-authors"><strong>Deboch Eyob Abera</strong>, Nazar Zaki, and Wenjian Qin.</div>
+        <div class="pub-venue">Biomedical Signal Processing and Control, vol. 112, 2026</div>
+        <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">SJR Q1</span></div>
+      </div></div>
 
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>pub4.png</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Journal · 04</div>
-          <div class="pub-title">A Deep Learning and Image Enhancement Based Pipeline for Infrared and Visible Image Fusion</div>
-          <div class="pub-authors">Qi Jin, <strong>Deboch Eyob Abera</strong>, Mola Natnael Fanose, Lingfeng Wang, Jian Cheng. <em>(Equal first authorship)</em></div>
-          <div class="pub-venue">Neurocomputing, vol. 578, 2024, p. 127353</div>
-          <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1016/j.neucom.2024.127353" target="_blank" rel="noopener">DOI ↗</a></div>
-          <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">Q1</span><span class="tag tag-scimago">SJR Q1</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Journal · 04</div>
+        <div class="pub-title">A Deep Learning and Image Enhancement Based Pipeline for Infrared and Visible Image Fusion</div>
+        <div class="pub-authors">Qi Jin, <strong>Deboch Eyob Abera</strong>, Mola Natnael Fanose, Lingfeng Wang, Jian Cheng. <em>(Equal first authorship)</em></div>
+        <div class="pub-venue">Neurocomputing, vol. 578, 2024, p. 127353</div>
+        <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1016/j.neucom.2024.127353" target="_blank" rel="noopener">DOI ↗</a></div>
+        <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">SJR Q1</span></div>
+      </div></div>
 
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>pub5.png</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Journal · 05</div>
-          <div class="pub-title">PS-GAN: Pseudo Supervised Generative Adversarial Network with Single Scale Retinex Embedding for Infrared and Visible Image Fusion</div>
-          <div class="pub-authors">Qi Jin, <strong>Deboch Eyob Abera</strong>, Jian Cheng. <em>(Equal first authorship)</em></div>
-          <div class="pub-venue">IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2024</div>
-          <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">Q1</span><span class="tag tag-scimago">SJR Q1</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Journal · 05</div>
+        <div class="pub-title">PS-GAN: Pseudo Supervised Generative Adversarial Network with Single Scale Retinex Embedding for Infrared and Visible Image Fusion</div>
+        <div class="pub-authors">Qi Jin, <strong>Deboch Eyob Abera</strong>, Jian Cheng. <em>(Equal first authorship)</em></div>
+        <div class="pub-venue">IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2024</div>
+        <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">SJR Q1</span></div>
+      </div></div>
 
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>pub6.png</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Journal · 06</div>
-          <div class="pub-title">Multi-Scale Feature Fusion for Prediction of IDH1 Mutations in Glioma Histopathological Images</div>
-          <div class="pub-authors">Liu Xiang, Wanming Hu, Songhui Diao, <strong>Deboch Eyob Abera</strong>, Daniel Racoceanu, Wenjian Qin.</div>
-          <div class="pub-venue">Computer Methods and Programs in Biomedicine, vol. 248, 2024, p. 108116</div>
-          <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1016/j.cmpb.2024.108116" target="_blank" rel="noopener">DOI ↗</a></div>
-          <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q2">Q2</span><span class="tag tag-scimago">SJR Q2</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Journal · 06</div>
+        <div class="pub-title">Multi-Scale Feature Fusion for Prediction of IDH1 Mutations in Glioma Histopathological Images</div>
+        <div class="pub-authors">Liu Xiang, Wanming Hu, Songhui Diao, <strong>Deboch Eyob Abera</strong>, Daniel Racoceanu, Wenjian Qin.</div>
+        <div class="pub-venue">Computer Methods and Programs in Biomedicine, vol. 248, 2024, p. 108116</div>
+        <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1016/j.cmpb.2024.108116" target="_blank" rel="noopener">DOI ↗</a></div>
+        <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q2">SJR Q2</span></div>
+      </div></div>
 
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>pub7.png</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Journal · 07</div>
-          <div class="pub-title">PGVMS: A Prompt-Guided Unified Framework for Virtual Multiplex IHC Staining with Pathological Semantic Learning</div>
-          <div class="pub-authors">Fuqiang Chen, Ranran Zhang, Wanming Hu, <strong>Deboch Eyob Abera</strong>, Yue Peng, Boyun Zheng, Yiwen Sun, Jing Cai, Wenjian Qin.</div>
-          <div class="pub-venue">IEEE Transactions on Medical Imaging, 2024</div>
-          <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">Q1</span><span class="tag tag-scimago">SJR Q1 — IF 10.6</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Journal · 07</div>
+        <div class="pub-title">PGVMS: A Prompt-Guided Unified Framework for Virtual Multiplex IHC Staining with Pathological Semantic Learning</div>
+        <div class="pub-authors">Fuqiang Chen, Ranran Zhang, Wanming Hu, <strong>Deboch Eyob Abera</strong>, Yue Peng, Boyun Zheng, Yiwen Sun, Jing Cai, Wenjian Qin.</div>
+        <div class="pub-venue">IEEE Transactions on Medical Imaging, 2024</div>
+        <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">SJR Q1</span></div>
+      </div></div>
 
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>pub8.png</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Journal · 08</div>
-          <div class="pub-title">USIGAN: Unbalanced Self-Information Feature Transport for Weakly Paired Image IHC Virtual Staining</div>
-          <div class="pub-authors">Yue Peng; Bing Xiong; Fuqiang Chen; <strong>Deboch Eyob Abera</strong>; Ranran Zhang; Wanming Hu; Jing Cai; Wenjian Qin.</div>
-          <div class="pub-venue">IEEE Transactions on Image Processing, 2024</div>
-          <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">Q1</span><span class="tag tag-scimago">SJR Q1 — IF 10.8</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Journal · 08</div>
+        <div class="pub-title">USIGAN: Unbalanced Self-Information Feature Transport for Weakly Paired Image IHC Virtual Staining</div>
+        <div class="pub-authors">Yue Peng; Bing Xiong; Fuqiang Chen; <strong>Deboch Eyob Abera</strong>; Ranran Zhang; Wanming Hu; Jing Cai; Wenjian Qin.</div>
+        <div class="pub-venue">IEEE Transactions on Image Processing, 2024</div>
+        <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">SJR Q1</span></div>
+      </div></div>
 
     </div>
 
-    <!-- CONFERENCE -->
     <div class="pub-section-head">Conference Papers</div>
-    <div class="pub-list" id="pub-conf">
+    <div class="pub-list">
 
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>conf1.png</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Conference · 01</div>
-          <div class="pub-title">Automatic Image Contrast Enhancement Based on Reinforcement Learning</div>
-          <div class="pub-authors"><strong>D. Eyob Abera</strong>, T. S. Gerezgiher, Q. Jin, G. F. Mesfin.</div>
-          <div class="pub-venue">ICCWAMTIP 2022, Chengdu, China</div>
-          <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1109/ICCWAMTIP56608.2022.10016571" target="_blank" rel="noopener">DOI ↗</a></div>
-          <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Conference · 01</div>
+        <div class="pub-title">Automatic Image Contrast Enhancement Based on Reinforcement Learning</div>
+        <div class="pub-authors"><strong>D. Eyob Abera</strong>, T. S. Gerezgiher, Q. Jin, G. F. Mesfin.</div>
+        <div class="pub-venue">ICCWAMTIP 2022, Chengdu, China</div>
+        <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1109/ICCWAMTIP56608.2022.10016571" target="_blank" rel="noopener">DOI ↗</a></div>
+        <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
+      </div></div>
 
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>conf2.png</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Conference · 02</div>
-          <div class="pub-title">Electroencephalography Data Denoising with Deep Neural Networks</div>
-          <div class="pub-authors">M. W. Bekele, <strong>D. Eyob Abera</strong>, M. T. Hailemichael, K. Yeabsra Dechasa, M. N. Fanos, M. Yared Getachew.</div>
-          <div class="pub-venue">ICCECT 2023, Jilin, China</div>
-          <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1109/ICCECT57938.2023.10140786" target="_blank" rel="noopener">DOI ↗</a></div>
-          <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Conference · 02</div>
+        <div class="pub-title">Electroencephalography Data Denoising with Deep Neural Networks</div>
+        <div class="pub-authors">M. W. Bekele, <strong>D. Eyob Abera</strong>, M. T. Hailemichael, K. Yeabsra Dechasa, M. N. Fanos, M. Yared Getachew.</div>
+        <div class="pub-venue">ICCECT 2023, Jilin, China</div>
+        <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1109/ICCECT57938.2023.10140786" target="_blank" rel="noopener">DOI ↗</a></div>
+        <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
+      </div></div>
 
     </div>
 
-    <!-- UNDER REVIEW -->
     <div class="pub-section-head">Under Review &amp; In Revision</div>
-    <div class="pub-list" id="pub-review">
+    <div class="pub-list">
 
-      <!-- MAJOR REVISION 1 -->
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>fig</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">In Revision · 01</div>
-          <div class="pub-title">A Unified Segmentation Model with Motion-Aware Graph Matching for Cross-Modality Cell Tracking</div>
-          <div class="pub-authors"><strong>Deboch Eyob Abera</strong> et al.</div>
-          <div class="pub-venue">Elsevier — Biomedical Signal Processing and Control</div>
-          <div class="pub-tags"><span class="tag tag-major">⚠ Major Revision</span><span class="tag tag-q1">Q1</span><span class="tag tag-scimago">SJR Q1</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">In Revision · 01</div>
+        <div class="pub-title">A Unified Segmentation Model with Motion-Aware Graph Matching for Cross-Modality Cell Tracking</div>
+        <div class="pub-authors"><strong>Deboch Eyob Abera</strong> et al.</div>
+        <div class="pub-venue">Elsevier — Biomedical Signal Processing and Control</div>
+        <div class="pub-tags"><span class="tag tag-major">⚠ Major Revision</span><span class="tag tag-q1">SJR Q1</span></div>
+      </div></div>
 
-      <!-- MAJOR REVISION 2 -->
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>fig</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">In Revision · 02</div>
-          <div class="pub-title">SynergiTripNet++: Synergistic Multi-Modal Fusion for Surgical Triplet Recognition in Endoscopic Videos</div>
-          <div class="pub-authors"><strong>Deboch Eyob Abera</strong> et al.</div>
-          <div class="pub-venue">Elsevier — Biomedical Signal Processing and Control</div>
-          <div class="pub-tags"><span class="tag tag-major">⚠ Major Revision</span><span class="tag tag-q1">Q1</span><span class="tag tag-scimago">SJR Q1</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">In Revision · 02</div>
+        <div class="pub-title">SynergiTripNet++: Synergistic Multi-Modal Fusion for Surgical Triplet Recognition in Endoscopic Videos</div>
+        <div class="pub-authors"><strong>Deboch Eyob Abera</strong> et al.</div>
+        <div class="pub-venue">Elsevier — Biomedical Signal Processing and Control</div>
+        <div class="pub-tags"><span class="tag tag-major">⚠ Major Revision</span><span class="tag tag-q1">SJR Q1</span></div>
+      </div></div>
 
-      <!-- UNDER REVIEW 1 -->
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>fig</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Under Review · 03</div>
-          <div class="pub-title">HybridFusionNet: A Novel Hybrid CNN and Transformer Architecture with Feature Pyramid Fusion for Surgical Scene Segmentation</div>
-          <div class="pub-authors">Under review</div>
-          <div class="pub-venue">Elsevier Display</div>
-          <div class="pub-tags"><span class="tag tag-review">◌ Under Review</span><span class="tag tag-scimago">SJR Q1</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Under Review · 03</div>
+        <div class="pub-title">HybridFusionNet: A Novel Hybrid CNN and Transformer Architecture with Feature Pyramid Fusion for Surgical Scene Segmentation</div>
+        <div class="pub-authors">Under review</div>
+        <div class="pub-venue">Elsevier — Displays</div>
+        <div class="pub-tags"><span class="tag tag-review">◌ Under Review</span><span class="tag tag-q2">SJR Q2</span></div>
+      </div></div>
 
-      <!-- UNDER REVIEW 2 -->
-      <div class="pub-card">
-        <div class="pub-thumb"><div class="pub-thumb-placeholder"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>fig</span></div></div>
-        <div class="pub-body">
-          <div class="pub-num">Under Review · 04</div>
-          <div class="pub-title">TempoSafe-CVS: A Temporal Multi-Scale Deep Learning Framework for Automated Assessment of the Critical View of Safety in Laparoscopic Cholecystectomy</div>
-          <div class="pub-authors">Under review</div>
-          <div class="pub-venue">Springer International Journal of Computer Assisted Radiology and Surgery</div>
-          <div class="pub-tags"><span class="tag tag-review">◌ Under Review</span><span class="tag tag-scimago">SJR Q2</span></div>
-        </div>
-      </div>
+      <div class="pub-card"><div class="pub-body">
+        <div class="pub-num">Under Review · 04</div>
+        <div class="pub-title">TempoSafe-CVS: A Temporal Multi-Scale Deep Learning Framework for Automated Assessment of the Critical View of Safety in Laparoscopic Cholecystectomy</div>
+        <div class="pub-authors">Under review</div>
+        <div class="pub-venue">Springer — International Journal of Computer Assisted Radiology and Surgery</div>
+        <div class="pub-tags"><span class="tag tag-review">◌ Under Review</span><span class="tag tag-q2">SJR Q2</span></div>
+      </div></div>
 
     </div>
   </div>
@@ -439,34 +368,16 @@
       <div class="skill-card"><h4>Journal Reviewer</h4><div class="skill-chips"><span class="chip">Pattern Recognition</span><span class="chip">Information Fusion</span><span class="chip">Infrared Physics &amp; Tech</span><span class="chip">Optics &amp; Laser Tech</span></div></div>
     </div>
 
-    <!-- REFERENCES -->
     <div class="section-header" style="margin-top:56px;"><h2>References</h2><div class="section-line"></div></div>
     <div class="ref-grid">
-      <div class="ref-card">
-        <h4>Prof. Wenjian Qin</h4>
-        <div class="ref-role">PhD Supervisor · CAS SIAT</div>
-        <div class="ref-contact"><a href="mailto:wj.qin@siat.ac">wj.qin@siat.ac</a></div>
-      </div>
-      <div class="ref-card">
-        <h4>Prof. Nazar Zaki</h4>
-        <div class="ref-role">PhD Advisor</div>
-        <div class="ref-contact"><a href="mailto:nzaki44@gmail.com">nzaki44@gmail.com</a></div>
-      </div>
-      <div class="ref-card">
-        <h4>Assoc. Prof. Qi Jin</h4>
-        <div class="ref-role">Master's Supervisor · UESTC</div>
-        <div class="ref-contact"><a href="mailto:jqi@uestc.edu.cn">jqi@uestc.edu.cn</a><br/>+86 158 2851 1916</div>
-      </div>
-      <div class="ref-card">
-        <h4>Assoc. Prof. Wu Ruiqing</h4>
-        <div class="ref-role">BSc Thesis Supervisor · UESTC</div>
-        <div class="ref-contact"><a href="mailto:rqwu@uestc.edu.cn">rqwu@uestc.edu.cn</a><br/>+86 28 6183 0054</div>
-      </div>
+      <div class="ref-card"><h4>Prof. Wenjian Qin</h4><div class="ref-role">PhD Supervisor · CAS SIAT</div><div class="ref-contact"><a href="mailto:wj.qin@siat.ac">wj.qin@siat.ac</a></div></div>
+      <div class="ref-card"><h4>Prof. Nazar Zaki</h4><div class="ref-role">PhD Advisor</div><div class="ref-contact"><a href="mailto:nzaki44@gmail.com">nzaki44@gmail.com</a></div></div>
+      <div class="ref-card"><h4>Assoc. Prof. Qi Jin</h4><div class="ref-role">Master's Supervisor · UESTC</div><div class="ref-contact"><a href="mailto:jqi@uestc.edu.cn">jqi@uestc.edu.cn</a><br/>+86 158 2851 1916</div></div>
+      <div class="ref-card"><h4>Assoc. Prof. Wu Ruiqing</h4><div class="ref-role">BSc Thesis Supervisor · UESTC</div><div class="ref-contact"><a href="mailto:rqwu@uestc.edu.cn">rqwu@uestc.edu.cn</a><br/>+86 28 6183 0054</div></div>
     </div>
   </div>
 </section>
 
 <footer><p>&copy; 2026 <span>Deboch Eyob Abera</span></p></footer>
-
 </body>
 </html>

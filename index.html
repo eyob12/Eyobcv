@@ -8,11 +8,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
-    :root{--navy:#0d1b2a;--navy-mid:#162033;--navy-soft:#1e2d42;--amber:#e8a020;--amber-light:#f5c060;--cream:#f7f3ed;--cream-dark:#ede8e0;--text:#1a2332;--text-muted:#5a6a7e;--white:#ffffff;--border:rgba(232,160,32,0.2);}
+    :root{
+      --navy:#0d1b2a;--navy-mid:#162033;--navy-soft:#1e2d42;
+      --amber:#e8a020;--amber-light:#f5c060;
+      --cream:#f7f3ed;--cream-dark:#ede8e0;
+      --text:#1a2332;--text-muted:#5a6a7e;
+      --white:#ffffff;--border:rgba(232,160,32,0.2);
+    }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{font-family:'IBM Plex Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
 
+    /* ── NAV ── */
     nav{position:sticky;top:0;z-index:999;background:var(--navy);border-bottom:2px solid var(--amber);}
     .nav-inner{max-width:1100px;margin:auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:56px;}
     .nav-brand{font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--amber);letter-spacing:0.08em;text-decoration:none;}
@@ -20,6 +27,7 @@
     .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.25s;}
     .nav-links a:hover{color:var(--amber);}
 
+    /* ── HERO ── */
     .hero{background:var(--navy)!important;color:var(--white);padding:90px 2rem 70px;position:relative;overflow:hidden;}
     .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(232,160,32,0.08) 0%,transparent 70%);pointer-events:none;}
     .hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;}
@@ -32,6 +40,7 @@
     .contact-pill:hover{background:rgba(232,160,32,0.22);}
     .hero-avatar{width:160px;height:160px;border-radius:50%;border:3px solid var(--amber);object-fit:cover;display:block;}
 
+    /* ── LAYOUT ── */
     .container{max-width:1100px;margin:auto;padding:0 2rem;}
     section{padding:72px 0;}
     section:not(.hero):nth-child(even){background:var(--cream-dark);}
@@ -39,6 +48,7 @@
     .section-header h2{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--navy);white-space:nowrap;}
     .section-line{flex:1;height:1px;background:linear-gradient(90deg,var(--amber),transparent);}
 
+    /* ── CARDS ── */
     .timeline{display:flex;flex-direction:column;gap:1.5rem;}
     .card{background:var(--white);border-radius:8px;padding:1.75rem 2rem;border:1px solid rgba(0,0,0,0.07);transition:box-shadow 0.25s,transform 0.25s;position:relative;}
     .card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--amber);border-radius:3px 0 0 3px;}
@@ -51,7 +61,7 @@
     .card ul li{margin-bottom:0.2rem;}
     .gpa-tag{display:inline-block;background:rgba(232,160,32,0.15);color:#7a5000;font-size:0.82rem;font-weight:600;border-radius:4px;padding:0.1rem 0.5rem;margin-left:0.5rem;}
 
-    /* Publications — text only, no image panel */
+    /* ── PUBLICATIONS ── */
     .pub-list{display:flex;flex-direction:column;gap:1.1rem;}
     .pub-section-head{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:2.5rem 0 1rem;display:flex;align-items:center;gap:0.75rem;}
     .pub-section-head::after{content:'';flex:1;height:1px;background:rgba(0,0,0,0.1);}
@@ -71,10 +81,65 @@
     .tag-review{background:#fff3e0;color:#e65100;border:1px solid #ffcc80;}
     .tag-major{background:#fce4ec;color:#b71c1c;border:1px solid #ef9a9a;}
     .tag-published{background:#e8f5e9;color:#1b5e20;border:1px solid #81c784;font-weight:600;}
-    .pub-links{display:flex;gap:0.5rem;margin-top:0.45rem;}
-    .pub-link{font-size:0.72rem;font-family:'IBM Plex Mono',monospace;color:var(--amber);text-decoration:none;border:1px solid rgba(232,160,32,0.4);border-radius:3px;padding:0.12rem 0.45rem;transition:background 0.2s;}
+
+    /* action buttons row */
+    .pub-actions{display:flex;gap:0.5rem;margin-top:0.65rem;flex-wrap:wrap;align-items:center;}
+
+    /* DOI link */
+    .pub-link{font-size:0.72rem;font-family:'IBM Plex Mono',monospace;color:var(--amber);text-decoration:none;border:1px solid rgba(232,160,32,0.4);border-radius:3px;padding:0.18rem 0.55rem;transition:background 0.2s;cursor:pointer;background:transparent;}
     .pub-link:hover{background:rgba(232,160,32,0.1);}
 
+    /* Read PDF button */
+    .btn-read{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-family:'IBM Plex Mono',monospace;font-weight:600;background:var(--amber);color:var(--navy);border:none;border-radius:3px;padding:0.28rem 0.7rem;cursor:pointer;transition:background 0.2s,transform 0.1s;text-decoration:none;}
+    .btn-read:hover{background:var(--amber-light);transform:translateY(-1px);}
+    .btn-read svg{flex-shrink:0;}
+
+    /* ── PDF VIEWER OVERLAY ── */
+    #pdf-overlay{
+      display:none;position:fixed;inset:0;z-index:10000;
+      background:rgba(10,18,30,0.96);
+      flex-direction:column;
+    }
+    #pdf-overlay.open{display:flex;}
+
+    /* Top toolbar */
+    .viewer-toolbar{
+      display:flex;align-items:center;justify-content:space-between;
+      background:var(--navy);border-bottom:2px solid var(--amber);
+      padding:0 1.25rem;height:52px;flex-shrink:0;gap:1rem;
+    }
+    .viewer-title{
+      font-family:'IBM Plex Mono',monospace;font-size:0.78rem;
+      color:var(--amber-light);white-space:nowrap;overflow:hidden;
+      text-overflow:ellipsis;max-width:60%;
+    }
+    .viewer-actions{display:flex;gap:0.6rem;align-items:center;flex-shrink:0;}
+    .vbtn{
+      display:inline-flex;align-items:center;gap:0.35rem;
+      font-family:'IBM Plex Mono',monospace;font-size:0.76rem;font-weight:600;
+      border-radius:4px;padding:0.35rem 0.85rem;cursor:pointer;
+      transition:background 0.2s,transform 0.1s;border:none;text-decoration:none;
+    }
+    .vbtn:hover{transform:translateY(-1px);}
+    .vbtn-download{background:var(--amber);color:var(--navy);}
+    .vbtn-download:hover{background:var(--amber-light);}
+    .vbtn-back{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.2);}
+    .vbtn-back:hover{background:rgba(255,255,255,0.18);}
+
+    /* iframe area */
+    .viewer-frame-wrap{flex:1;overflow:hidden;position:relative;}
+    #pdf-iframe{width:100%;height:100%;border:none;display:block;}
+
+    /* Fallback message shown when iframe can't render */
+    .viewer-fallback{
+      display:none;flex-direction:column;align-items:center;justify-content:center;
+      height:100%;color:rgba(255,255,255,0.7);font-size:0.95rem;gap:1rem;
+      font-family:'IBM Plex Sans',sans-serif;text-align:center;padding:2rem;
+    }
+    .viewer-fallback.show{display:flex;}
+    .viewer-fallback p{max-width:400px;line-height:1.7;}
+
+    /* ── AWARDS ── */
     .awards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;}
     .award-card{background:var(--white);border-radius:8px;padding:1.25rem 1.5rem;border:1px solid rgba(0,0,0,0.07);display:flex;gap:1rem;align-items:flex-start;}
     .award-icon{font-size:1.6rem;line-height:1;flex-shrink:0;}
@@ -82,12 +147,14 @@
     .award-info p{font-size:0.82rem;color:var(--text-muted);}
     .award-year{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--amber);margin-top:0.25rem;font-weight:500;}
 
+    /* ── SKILLS ── */
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.25rem;}
     .skill-card{background:var(--white);border-radius:8px;padding:1.5rem;border:1px solid rgba(0,0,0,0.07);}
     .skill-card h4{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.09em;color:var(--amber);margin-bottom:0.75rem;}
     .skill-chips{display:flex;flex-wrap:wrap;gap:0.4rem;}
     .chip{font-size:0.8rem;background:var(--cream);border:1px solid rgba(0,0,0,0.1);border-radius:4px;padding:0.2rem 0.55rem;color:var(--text);}
 
+    /* ── REFERENCES ── */
     .ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.25rem;}
     .ref-card{background:var(--white);border-radius:8px;padding:1.5rem;border:1px solid rgba(0,0,0,0.07);}
     .ref-card h4{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--navy);margin-bottom:0.2rem;}
@@ -103,11 +170,37 @@
       .hero-inner{grid-template-columns:1fr;}
       .hero-avatar{margin:auto;}
       .nav-links{gap:1rem;}
+      .viewer-title{max-width:40%;}
     }
   </style>
 </head>
 <body>
 
+<!-- ══════════════ PDF VIEWER OVERLAY ══════════════ -->
+<div id="pdf-overlay">
+  <div class="viewer-toolbar">
+    <span class="viewer-title" id="viewer-title">Paper</span>
+    <div class="viewer-actions">
+      <a id="viewer-download" class="vbtn vbtn-download" href="#" download>
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 3v13m0 0l-4-4m4 4l4-4M3 20h18"/></svg>
+        Download PDF
+      </a>
+      <button class="vbtn vbtn-back" onclick="closePDF()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5m0 0l7 7m-7-7l7-7"/></svg>
+        Back
+      </button>
+    </div>
+  </div>
+  <div class="viewer-frame-wrap">
+    <iframe id="pdf-iframe" title="PDF Viewer"></iframe>
+    <div class="viewer-fallback" id="viewer-fallback">
+      <svg width="48" height="48" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      <p>Your browser couldn't display the PDF inline. Use the Download button above to open it.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ NAV ══════════════ -->
 <nav>
   <div class="nav-inner">
     <a class="nav-brand" href="#top">DEBOCH EYOB ABERA</a>
@@ -121,7 +214,7 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ══════════════ HERO ══════════════ -->
 <section class="hero" id="top">
   <div class="hero-inner container">
     <div>
@@ -139,7 +232,7 @@
   </div>
 </section>
 
-<!-- EDUCATION -->
+<!-- ══════════════ EDUCATION ══════════════ -->
 <section id="education">
   <div class="container">
     <div class="section-header"><h2>Education</h2><div class="section-line"></div></div>
@@ -163,7 +256,7 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
+<!-- ══════════════ EXPERIENCE ══════════════ -->
 <section id="experience">
   <div class="container">
     <div class="section-header"><h2>Experience</h2><div class="section-line"></div></div>
@@ -199,106 +292,179 @@
   </div>
 </section>
 
-<!-- PUBLICATIONS -->
+<!-- ══════════════ PUBLICATIONS ══════════════ -->
 <section id="publications">
   <div class="container">
     <div class="section-header"><h2>Publications</h2><div class="section-line"></div></div>
 
+    <!-- JOURNAL PAPERS -->
     <div class="pub-section-head">Journal Papers</div>
     <div class="pub-list">
 
+      <!-- J01 → paper3 -->
       <div class="pub-card"><div class="pub-body">
         <div class="pub-num">Journal · 01</div>
         <div class="pub-title">A Deep Learning Based Relative Clarity Classification Method for Infrared and Visible Image Fusion</div>
         <div class="pub-authors"><strong>Deboch Eyob Abera</strong>, Qi Jin, and Jian Cheng.</div>
         <div class="pub-venue">Infrared Physics &amp; Technology, vol. 140, 2024, p. 105375</div>
-        <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1016/j.infrared.2024.105375" target="_blank" rel="noopener">DOI ↗</a></div>
         <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q2">SJR Q2</span></div>
+        <div class="pub-actions">
+          <button class="btn-read" onclick="openPDF('Papers/paper3-A deep learning based relative clarity classification method for infrared and visible image fusion.pdf','Journal · 01 — Relative Clarity Classification')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Read Paper
+          </button>
+          <a class="pub-link" href="https://doi.org/10.1016/j.infrared.2024.105375" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
       </div></div>
 
+      <!-- J02 → paper1 -->
       <div class="pub-card"><div class="pub-body">
         <div class="pub-num">Journal · 02</div>
         <div class="pub-title">Automated Prompt-Guided Multi-Modality Cell Segmentation with Shape-Aware Classification and Boundary-Aware SAM Adaptation</div>
         <div class="pub-authors"><strong>Deboch Eyob Abera</strong>; Jiaye He; Jia Liu; Nazar Zaki.</div>
         <div class="pub-venue">Displays, Elsevier, 2024</div>
         <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q2">SJR Q2</span></div>
+        <div class="pub-actions">
+          <button class="btn-read" onclick="openPDF('Papers/paper1-Automated prompt-guided multi-modality cell segmentation with shape-aware classification and boundary-aware SAM adaptation.pdf','Journal · 02 — Automated Prompt-Guided Cell Segmentation')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Read Paper
+          </button>
+        </div>
       </div></div>
 
+      <!-- J03 → paper2 -->
       <div class="pub-card"><div class="pub-body">
         <div class="pub-num">Journal · 03</div>
         <div class="pub-title">Style Transformation and Distance Map Guided Nucleus Instance Segmentation via Multi-Task Learning</div>
         <div class="pub-authors"><strong>Deboch Eyob Abera</strong>, Nazar Zaki, and Wenjian Qin.</div>
         <div class="pub-venue">Biomedical Signal Processing and Control, vol. 112, 2026</div>
         <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">SJR Q1</span></div>
+        <div class="pub-actions">
+          <button class="btn-read" onclick="openPDF('Papers/paper2-Style transformation and distance map guided nucleusinstance segmentation via multi task learning.pdf','Journal · 03 — Style Transformation Nucleus Segmentation')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Read Paper
+          </button>
+        </div>
       </div></div>
 
+      <!-- J04 → paper5 -->
       <div class="pub-card"><div class="pub-body">
         <div class="pub-num">Journal · 04</div>
         <div class="pub-title">A Deep Learning and Image Enhancement Based Pipeline for Infrared and Visible Image Fusion</div>
         <div class="pub-authors">Qi Jin, <strong>Deboch Eyob Abera</strong>, Mola Natnael Fanose, Lingfeng Wang, Jian Cheng. <em>(Equal first authorship)</em></div>
         <div class="pub-venue">Neurocomputing, vol. 578, 2024, p. 127353</div>
-        <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1016/j.neucom.2024.127353" target="_blank" rel="noopener">DOI ↗</a></div>
         <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">SJR Q1</span></div>
+        <div class="pub-actions">
+          <button class="btn-read" onclick="openPDF('Papers/paper5-A deep learning and image enhancement based pipeline for infrared and visible image fusion.pdf','Journal · 04 — Deep Learning Pipeline for IR Fusion')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Read Paper
+          </button>
+          <a class="pub-link" href="https://doi.org/10.1016/j.neucom.2024.127353" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
       </div></div>
 
+      <!-- J05 → paper4-PS-GAN -->
       <div class="pub-card"><div class="pub-body">
         <div class="pub-num">Journal · 05</div>
         <div class="pub-title">PS-GAN: Pseudo Supervised Generative Adversarial Network with Single Scale Retinex Embedding for Infrared and Visible Image Fusion</div>
         <div class="pub-authors">Qi Jin, <strong>Deboch Eyob Abera</strong>, Jian Cheng. <em>(Equal first authorship)</em></div>
         <div class="pub-venue">IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2024</div>
         <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">SJR Q1</span></div>
+        <div class="pub-actions">
+          <button class="btn-read" onclick="openPDF('Papers/paper4-PS-GAN_Pseudo Supervised Generative Adversarial Network With Single Scale Retinex Embedding for Infrared and Visible Image Fusion.pdf','Journal · 05 — PS-GAN')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Read Paper
+          </button>
+        </div>
       </div></div>
 
+      <!-- J06 → paper6 -->
       <div class="pub-card"><div class="pub-body">
         <div class="pub-num">Journal · 06</div>
         <div class="pub-title">Multi-Scale Feature Fusion for Prediction of IDH1 Mutations in Glioma Histopathological Images</div>
         <div class="pub-authors">Liu Xiang, Wanming Hu, Songhui Diao, <strong>Deboch Eyob Abera</strong>, Daniel Racoceanu, Wenjian Qin.</div>
         <div class="pub-venue">Computer Methods and Programs in Biomedicine, vol. 248, 2024, p. 108116</div>
-        <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1016/j.cmpb.2024.108116" target="_blank" rel="noopener">DOI ↗</a></div>
-        <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">SJR Q1</span></div>
+        <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q2">SJR Q2</span></div>
+        <div class="pub-actions">
+          <button class="btn-read" onclick="openPDF('Papers/paper6-Multi-scale feature fusion for prediction of IDH1 mutations in glioma histopathological images.pdf','Journal · 06 — IDH1 Mutation Prediction')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Read Paper
+          </button>
+          <a class="pub-link" href="https://doi.org/10.1016/j.cmpb.2024.108116" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
       </div></div>
 
+      <!-- J07 → paper7-PGVMS -->
       <div class="pub-card"><div class="pub-body">
         <div class="pub-num">Journal · 07</div>
         <div class="pub-title">PGVMS: A Prompt-Guided Unified Framework for Virtual Multiplex IHC Staining with Pathological Semantic Learning</div>
         <div class="pub-authors">Fuqiang Chen, Ranran Zhang, Wanming Hu, <strong>Deboch Eyob Abera</strong>, Yue Peng, Boyun Zheng, Yiwen Sun, Jing Cai, Wenjian Qin.</div>
         <div class="pub-venue">IEEE Transactions on Medical Imaging, 2024</div>
         <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">SJR Q1</span></div>
+        <div class="pub-actions">
+          <button class="btn-read" onclick="openPDF('Papers/paper7-PGVMS_A Prompt-Guided Unified Framework for Virtual Multiplex IHC Staining with Pathological Semantic Learning.pdf','Journal · 07 — PGVMS IHC Staining')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Read Paper
+          </button>
+        </div>
       </div></div>
 
+      <!-- J08 → paper8-USIGAN -->
       <div class="pub-card"><div class="pub-body">
         <div class="pub-num">Journal · 08</div>
         <div class="pub-title">USIGAN: Unbalanced Self-Information Feature Transport for Weakly Paired Image IHC Virtual Staining</div>
         <div class="pub-authors">Yue Peng; Bing Xiong; Fuqiang Chen; <strong>Deboch Eyob Abera</strong>; Ranran Zhang; Wanming Hu; Jing Cai; Wenjian Qin.</div>
         <div class="pub-venue">IEEE Transactions on Image Processing, 2024</div>
         <div class="pub-tags"><span class="tag tag-published">✓ Published</span><span class="tag tag-q1">SJR Q1</span></div>
+        <div class="pub-actions">
+          <button class="btn-read" onclick="openPDF('Papers/paper8-USIGAN_Unbalanced Self-Information Feature Transport for Weakly Paired Image IHC Virtual Staining.pdf','Journal · 08 — USIGAN IHC Virtual Staining')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Read Paper
+          </button>
+        </div>
       </div></div>
 
-    </div>
+    </div><!-- /pub-list journal -->
 
+    <!-- CONFERENCE PAPERS -->
     <div class="pub-section-head">Conference Papers</div>
     <div class="pub-list">
 
+      <!-- C01 → conf1 -->
       <div class="pub-card"><div class="pub-body">
         <div class="pub-num">Conference · 01</div>
         <div class="pub-title">Automatic Image Contrast Enhancement Based on Reinforcement Learning</div>
         <div class="pub-authors"><strong>D. Eyob Abera</strong>, T. S. Gerezgiher, Q. Jin, G. F. Mesfin.</div>
         <div class="pub-venue">ICCWAMTIP 2022, Chengdu, China</div>
-        <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1109/ICCWAMTIP56608.2022.10016571" target="_blank" rel="noopener">DOI ↗</a></div>
         <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
+        <div class="pub-actions">
+          <button class="btn-read" onclick="openPDF('Papers/conf1-AUTOMATIC IMAGE CONTRAST ENHANCEMENT BASED ON REINFROCEMENT LEARNING.pdf','Conference · 01 — Image Contrast Enhancement via RL')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Read Paper
+          </button>
+          <a class="pub-link" href="https://doi.org/10.1109/ICCWAMTIP56608.2022.10016571" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
       </div></div>
 
+      <!-- C02 → conf2 -->
       <div class="pub-card"><div class="pub-body">
         <div class="pub-num">Conference · 02</div>
         <div class="pub-title">Electroencephalography Data Denoising with Deep Neural Networks</div>
         <div class="pub-authors">M. W. Bekele, <strong>D. Eyob Abera</strong>, M. T. Hailemichael, K. Yeabsra Dechasa, M. N. Fanos, M. Yared Getachew.</div>
         <div class="pub-venue">ICCECT 2023, Jilin, China</div>
-        <div class="pub-links"><a class="pub-link" href="https://doi.org/10.1109/ICCECT57938.2023.10140786" target="_blank" rel="noopener">DOI ↗</a></div>
         <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
+        <div class="pub-actions">
+          <button class="btn-read" onclick="openPDF('Papers/conf2- Electroencephalography Data Denoising with Deep Neural Networks.pdf','Conference · 02 — EEG Denoising with DNNs')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Read Paper
+          </button>
+          <a class="pub-link" href="https://doi.org/10.1109/ICCECT57938.2023.10140786" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
       </div></div>
 
-    </div>
+    </div><!-- /pub-list conf -->
 
+    <!-- UNDER REVIEW & IN REVISION -->
     <div class="pub-section-head">Under Review &amp; In Revision</div>
     <div class="pub-list">
 
@@ -334,11 +500,11 @@
         <div class="pub-tags"><span class="tag tag-review">◌ Under Review</span><span class="tag tag-q2">SJR Q2</span></div>
       </div></div>
 
-    </div>
+    </div><!-- /pub-list review -->
   </div>
 </section>
 
-<!-- AWARDS -->
+<!-- ══════════════ AWARDS ══════════════ -->
 <section id="awards">
   <div class="container">
     <div class="section-header"><h2>Awards &amp; Scholarships</h2><div class="section-line"></div></div>
@@ -355,7 +521,7 @@
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- ══════════════ SKILLS ══════════════ -->
 <section id="skills">
   <div class="container">
     <div class="section-header"><h2>Skills &amp; Languages</h2><div class="section-line"></div></div>
@@ -379,5 +545,53 @@
 </section>
 
 <footer><p>&copy; 2026 <span>Deboch Eyob Abera</span></p></footer>
+
+<!-- ══════════════ PDF VIEWER SCRIPT ══════════════ -->
+<script>
+  const overlay   = document.getElementById('pdf-overlay');
+  const iframe    = document.getElementById('pdf-iframe');
+  const titleEl   = document.getElementById('viewer-title');
+  const dlBtn     = document.getElementById('viewer-download');
+  const fallback  = document.getElementById('viewer-fallback');
+  let scrollY     = 0;
+
+  function openPDF(path, label) {
+    scrollY = window.scrollY;
+    titleEl.textContent = label;
+
+    /* Set download link */
+    dlBtn.href = path;
+    dlBtn.download = path.split('/').pop();
+
+    /* Load iframe — append timestamp to bust any cache issues */
+    const src = path + '?t=' + Date.now();
+    iframe.src = src;
+    fallback.classList.remove('show');
+
+    /* Show overlay */
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    /* Detect if iframe fails (e.g. browser blocks PDF) */
+    iframe.onerror = () => {
+      iframe.style.display = 'none';
+      fallback.classList.add('show');
+    };
+  }
+
+  function closePDF() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    iframe.src = '';          /* stop loading / free memory */
+    iframe.style.display = 'block';
+    fallback.classList.remove('show');
+    window.scrollTo({ top: scrollY, behavior: 'instant' });
+  }
+
+  /* Close with Escape key */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closePDF();
+  });
+</script>
 </body>
 </html>
